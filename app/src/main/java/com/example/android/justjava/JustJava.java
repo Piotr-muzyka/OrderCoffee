@@ -6,6 +6,9 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.android.justjava.R;
+
+import java.text.NumberFormat;
+
 /**
  * This app displays an order form to order coffee.
  */
@@ -22,6 +25,7 @@ public class JustJava extends AppCompatActivity {
      */
     public void submitOrder(View view) {
         display(1);
+        displayPrice(1*10);
     }
 
     /**
@@ -30,5 +34,13 @@ public class JustJava extends AppCompatActivity {
     private void display(int number) {
         TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
         quantityTextView.setText("" + number);
+    }
+
+    /**
+     * This method displays the given price on the screen.
+     */
+    private void displayPrice(int number) {
+        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
+        priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
     }
 }
